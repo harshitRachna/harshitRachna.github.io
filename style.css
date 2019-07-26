@@ -56,11 +56,13 @@ p:hover{
 	text-shadow: 2px 2px 5px blue;
 }
 div{
+	text-align: center;
 	padding: 0 50px;
 }
 footer{
 	text-shadow: 2px 2px 5px navy;
 	text-transform: uppercase;
+	margin-top: 20px;
 }
 
 input{
@@ -70,12 +72,33 @@ input{
 	margin: 0 0 0 5px;
 }
 button{
-transition: transform .8s;
+transition: transform 5s;
 	
 }
-button:hover{
-	transform: scale(1.05);
+button:hover,.v{
+	
+	height: 40px;
+	
 }
 .clear{
 	text-align: center;
+}
+.line{
+
+	border-bottom: 4px solid #dc3545;
+	width: 50px;
+	
+
+}
+.v{
+
+    display: flex;
+    justify-content: center;
+}
+.email{
+	transition: 1s;
+	color: pink;
+}
+.email:hover{
+	background-color:black; 
 }
