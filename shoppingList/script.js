@@ -1,8 +1,9 @@
 var button = document.getElementById("enter");
+var clear = document.getElementById("clear");
 var input = document.getElementById("userinput");
 var ul = document.querySelector("ul");
 var list=document.querySelectorAll("li");
-var dell=document.querySelectorAll(".del");
+var dell=document.querySelectorAll(".div");
 
 function inputLength() {
 	return input.value.length;
@@ -10,10 +11,10 @@ function inputLength() {
 
 function createListElement() {
 	var li = document.createElement("li");
-	var de= document.createElement("button");
+	var de= document.createElement("div");
 	li.appendChild(document.createTextNode(input.value));
-	de.appendChild(document.createTextNode("Delete"));
-
+	de.className="div";
+	li.className="li-wrapper";
 	ul.appendChild(li);
 	li.appendChild(de);
 	li.addEventListener("click",toggles);
@@ -40,9 +41,13 @@ function addListAfterKeypress(event) {
 	}
 }
 function Delete( but ){
-	but.path[1].innerHTML="";
-	but.path[1].style.listStyleType="none";
-	console.log(but.path[1]);
+	// but.path[1].innerHTML="";
+	// but.path[1].style.listStyleType="none";
+	
+	dele(but.path[0]);
+}
+function dele( button1 ){
+	button1.parentNode.remove();
 }
 
 list.forEach(function(cu){
@@ -55,11 +60,20 @@ dell.forEach(function(cu){
 	
 }) ;
 
+function clean(li){
+	var re=li.path[1].children[4].children[0].children[0];
+	re.innerHTML="";
+	// re.forEach(function(rev){
+	// 	rev.remove();
+	// });
+	// li.path[1].children[4].children[0].children[0].children.remove();
+	// console.log(re);
+}
 //  {
 // 	list[i].addEventListener("click",toggles);
 // 	dell[i].addEventListener("click",Delete);
 // }
 
 button.addEventListener("click", addListAfterClick);
-
+clear.addEventListener("click", clean);
 input.addEventListener("keypress", addListAfterKeypress);
