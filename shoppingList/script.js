@@ -12,11 +12,16 @@ function inputLength() {
 function createListElement() {
 	var li = document.createElement("li");
 	var de= document.createElement("div");
+	var dot= document.createElement("div");
+	var liDiv= document.createElement("div");
 	li.appendChild(document.createTextNode(input.value));
 	de.className="div";
-	li.className="li-wrapper";
-	ul.appendChild(li);
-	li.appendChild(de);
+	dot.className="dot";
+	liDiv.className="li-wrapper";
+	ul.appendChild(liDiv);
+	liDiv.appendChild(dot);
+	liDiv.appendChild(li)
+	liDiv.appendChild(de);
 	li.addEventListener("click",toggles);
  	de.addEventListener("click",Delete);
 	input.value = "";
